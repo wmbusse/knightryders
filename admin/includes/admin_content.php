@@ -65,18 +65,28 @@
 
                         # test find all user method
 
-                        $user = new User();
+                      
 
-                        $result_set = $user->find_all_users();
+                        $result_set = User::find_all_users();
 
                         while($row = mysqli_fetch_array($result_set)){
                             echo 'User found  <br />';
                             echo $row['username']. "<br />";
                         }
                         ?>
+                        <h3>Find user by id</h3>
+                        <?php
+
+                        $result_set = User::find_user_by_id(2);
+                        while($row = mysqli_fetch_array($result_set)){
+
+                            echo $row['username'].'  User id is :  '.$row['id'];
+
+                        }
+                        ?>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-file"></i> Blank Page
