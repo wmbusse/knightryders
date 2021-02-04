@@ -11,15 +11,15 @@
 
         <div id="page-wrapper">
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="background:#ffff99;">
 
                 <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 text-center">
                         <h1 class="page-header">
-                        Users
-                            <small>Subheading</small>
-                        </h2>
+                        Meet The Team
+                        </h1>
+                        <h4>The Best of All the Rest</h4>
                         <?php 
                      /*   $sql = "SELECT * FROM users where id=1";
                         $result = $database->query($sql);
