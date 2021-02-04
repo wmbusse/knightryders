@@ -3,7 +3,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                            Admin
-                            <small>Subheading</small>
+                            <small>The Future is Here and Now </small>
                         </h1>
                         <?php 
 
@@ -61,12 +61,12 @@
                         echo '</td></tr></table>';
 
                        
-                        */
+                       
 
                         # test find all user method
 
                       
-
+                            
                         $result_set = User::find_all_users();
 
                         while($row = mysqli_fetch_array($result_set)){
@@ -75,14 +75,36 @@
                         }
                         ?>
                         <h3>Find user by id</h3>
-                        <?php
+                        <?php 
 
-                        $result_set = User::find_user_by_id(2);
-                        while($row = mysqli_fetch_array($result_set)){
+                        $founduser = User::find_user_by_id(2);
+                        $user = User::instantiation($founduser);
+                        
+                        echo $user->username;
 
-                            echo $row['username'].'  User id is :  '.$row['id'];
+                        */
+                       ?>
+                       <h2>All Users</h2>
+                       <?php 
 
+                        $users= User::find_all_users();
+                        foreach($users as $user){
+                            echo $user->id."&nbsp;".$user->username. "&nbsp;".$user->lastname."<br />";
+                          
                         }
+                    ?>
+                    <h3>Find user by id </h3>
+                    <?php 
+                    $found_user = User::find_user_by_id(2);
+                    echo $found_user->firstname.'&nbsp;'.$found_user->lastname;
+                            
+                          
+
+                        ?>
+                       
+                       
+                        <?php 
+                        
                         ?>
                         <ol class="breadcrumb">
                             <li>

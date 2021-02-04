@@ -63,16 +63,18 @@
                         echo $userfound['experience'];
                         echo '</td></tr></table>';
                         */
-                        $user = new User();
-                        $result_set = $user->find_all_users();
+                       $users = User::find_all_users();
                         ?>
                         <table class = "table" style = "text-align:center">
                         <?php
-                        while ($row = mysqli_fetch_array($result_set)){
-                        
-                            echo '<tr><td>'.$row['username']. '</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</tr>';
-
+                        foreach($users as $user){
+                            echo "<tr><td>".$user->firstname.
+                            "<td>".$user->lastname.
+                            "</td><td>".$user->experience.
+                            "</td></tr>";
                         }
+
+                        
                         ?>
                         </table>
                         
