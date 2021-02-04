@@ -62,6 +62,17 @@
 
                        
                         */
+
+                        # test find all user method
+
+                        $user = new User();
+
+                        $result_set = $user->find_all_users();
+
+                        while($row = mysqli_fetch_array($result_set)){
+                            echo 'User found  <br />';
+                            echo $row['username']. "<br />";
+                        }
                         ?>
                         <ol class="breadcrumb">
                             <li>

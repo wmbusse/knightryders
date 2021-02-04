@@ -21,7 +21,7 @@
                             <small>Subheading</small>
                         </h2>
                         <?php 
-                        $sql = "SELECT * FROM users where id=1";
+                     /*   $sql = "SELECT * FROM users where id=1";
                         $result = $database->query($sql);
                         $userfound = mysqli_fetch_array($result);
                         echo '<table class = "table" style = "text-align:center">';
@@ -62,9 +62,21 @@
                         echo '</td><td>';
                         echo $userfound['experience'];
                         echo '</td></tr></table>';
-
-                        
+                        */
+                        $user = new User();
+                        $result_set = $user->find_all_users();
                         ?>
+                        <table class = "table" style = "text-align:center">
+                        <?php
+                        while ($row = mysqli_fetch_array($result_set)){
+                        
+                            echo '<tr><td>'.$row['username']. '</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</tr>';
+
+                        }
+                        ?>
+                        </table>
+                        
+                      
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
