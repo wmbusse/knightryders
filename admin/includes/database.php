@@ -50,7 +50,7 @@ class Database {
 
             if(!$result){
 
-                die("Query Failed" . $this->connction->error);
+                die("Query Failed" . $this->connection->error);
     
             }
 

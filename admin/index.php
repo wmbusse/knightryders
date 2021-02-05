@@ -1,5 +1,5 @@
-<?php include("includes/header.php"); ?>
-
+<?php include("includes/header.php"); 
+if(!$session->is_signed_in()) {redirect("login.php");}?>
         
             <!-- Top Menu Items -->
            <?php include("includes/top_nav.php");?>

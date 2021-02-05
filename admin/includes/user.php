@@ -52,6 +52,18 @@ class User{
         return $the_object_array;
     }#end method find this query
 
+    # begin verify user method 
+
+    public static function verify_user($username, $password){
+        global $database;
+        $username = $database->escape_string($username);
+        $password = $database->escape_string($password);
+        $sql = "SELECT * FROM users WHERE username = '$username' AND password= '$password'";
+
+        $the_result_array = self::find_this_query($sql);
+        return !empty( $the_result_array) ? array_shift($the_result_array) : false;
+    }
+
     # begin instantiation method
 
     public static function instantiation($the_record){
@@ -84,6 +96,8 @@ class User{
 
 
     }#end has attribute method
+
+
 
 }// End user class
 
