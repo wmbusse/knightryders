@@ -71,9 +71,11 @@
                             echo "<tr><td>".$user->firstname.
                             "<td>".$user->lastname.
                             "</td><td>".$user->experience.
-                            "</td></tr>";
+                            "</td><td>".$user->username.
+                            "</td><td><textarea style = 'width:200px;height:100px;background:yellow'>".$user->profile.
+                            "</textarea></td></tr>";
                         }
-
+                      
                         
                         ?>
                         </table>

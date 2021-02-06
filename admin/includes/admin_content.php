@@ -5,7 +5,22 @@
               Admin
               <small>The Future is Here and Now </small>
           </h1>
+      
+           <?php
 
+           $user = new User();
+           $user->username = "Monroe";
+           $user->firstname = "Monroe";
+           $user->lastname = "KityCat";
+           $user->password = "Cat";
+
+           $user->create();
+           
+      $user = User::find_user_by_id($user->id);
+      $user->username = "Roe Roe";
+      $user->update();
+
+?>
           <ol class="breadcrumb">
               <li>
                   <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
