@@ -63,7 +63,7 @@
                         echo $userfound['experience'];
                         echo '</td></tr></table>';
                         */
-                       $users = User::find_all_users();
+                       $users = User::find_all();
                         ?>
                         <table class = "table" style = "text-align:center">
                         <?php

@@ -1,6 +1,6 @@
 <?php
 
-$user=User::find_user_by_id($_SESSION['user_id']);
+$user= User::find_by_id($_SESSION['user_id']);
 $_SESSION['username'] = $user->username."&nbsp;".$user->lastname;
 ?>
 

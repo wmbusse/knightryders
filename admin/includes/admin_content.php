@@ -8,7 +8,7 @@
       
            <?php
            
-
+/*
            $user = new User();
            $user->username = "L.G";
            $user->firstname = "Little ";
@@ -23,12 +23,9 @@
       $user->username = "Roe Roe";
       $user->update();
 
-      $user = User::find_user_by_id(48);
-      $user->firstname = "Arlo";
-      $user->lastname = "Knight";
-      $user->username = "Skinny Boy";
-      $user->experience = " Not in your or my life ";
-      $user->profile = " I am the bestest, skinniest friendliest most loving cat in the house........... NOT DUNDEE";
+      $user = User::find_by_id(38);
+    
+      $user->profile = "Now hmm well let me tell you.. contrary to what Dundee thinks and tells you... Im actually the senior cat in this house.!!!";
       $user->save();
      /*
       $user = User::find_user_by_username("Chrys");
