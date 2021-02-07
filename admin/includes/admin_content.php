@@ -7,26 +7,33 @@
           </h1>
       
            <?php
-           /*
+           
 
            $user = new User();
-           $user->username = "Roe Roe";
-           $user->firstname = "Monroe";
-           $user->lastname = "KityCat";
-           $user->password = "Cat";
+           $user->username = "L.G";
+           $user->firstname = "Little ";
+           $user->lastname = "Girl";
+           $user->password = "TheOnlyFemaleCat";
            $user->experience = "Professional";
+           $user->profile = "I am the only female Cat in this house... and I demand all the respect!";
 
            $user->create();
-      
+      /*
       $user = User::find_user_by_id($user->id);
       $user->username = "Roe Roe";
       $user->update();
 
-      $user = User::find_user_by_id(3);
-      $user->delete();
-      */
+      $user = User::find_user_by_id(48);
+      $user->firstname = "Arlo";
+      $user->lastname = "Knight";
+      $user->username = "Skinny Boy";
+      $user->experience = " Not in your or my life ";
+      $user->profile = " I am the bestest, skinniest friendliest most loving cat in the house........... NOT DUNDEE";
+      $user->save();
+     /*
       $user = User::find_user_by_username("Chrys");
       echo $user->firstname;
+      */
 ?>
           <ol class="breadcrumb">
               <li>
