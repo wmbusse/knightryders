@@ -6,11 +6,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-    <?php 
-   $user= new User();
-   $found_user = $user->find_user_by_id(2);
-    echo $user->username;
-    ?>
+ 
           
          
 

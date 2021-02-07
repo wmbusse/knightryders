@@ -7,19 +7,26 @@
           </h1>
       
            <?php
+           /*
 
            $user = new User();
-           $user->username = "Monroe";
+           $user->username = "Roe Roe";
            $user->firstname = "Monroe";
            $user->lastname = "KityCat";
            $user->password = "Cat";
+           $user->experience = "Professional";
 
            $user->create();
-           
+      
       $user = User::find_user_by_id($user->id);
       $user->username = "Roe Roe";
       $user->update();
 
+      $user = User::find_user_by_id(3);
+      $user->delete();
+      */
+      $user = User::find_user_by_username("Chrys");
+      echo $user->firstname;
 ?>
           <ol class="breadcrumb">
               <li>

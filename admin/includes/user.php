@@ -41,6 +41,12 @@ class User
         }*/
   } # end method find user by id
 
+  public static function find_user_by_username($username){
+    global $database;
+    $the_result_array = self::find_this_query("SELECT * FROM users WHERE username ='$username' LIMIT 1");
+    return !empty($the_result_array) ? array_shift($the_result_array) : false;
+  }
+
   # begin find this query method 
 
   public static function find_this_query($sql)
@@ -125,6 +131,7 @@ class User
     }
     }# end Create Method 
 
+      #update function
     public function update(){
       global $database;
 
@@ -143,5 +150,14 @@ class User
 
       return(mysqli_affected_rows($database->connection)== 1) ? true:false;
 
-    }
+    }# End update Method 
+
+    # Begin Delete Method 
+    public function delete(){
+      global $database;
+      $sql = "DELETE FROM users WHERE id = ".$database->escape_string($this->id);
+      $database->query($sql);
+      return(mysqli_affected_rows($database->connection)==1) ? true:false;
+    }# End Delete Method 
+
 }// End user class
