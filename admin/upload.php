@@ -8,6 +8,7 @@ if(isset($_POST['submit'])){
 
    if($photo->save()) {
        $message = "Photo uploaded successfully!";
+       redirect("photos.php");
    }else{
        $message = join("<br />", $photo->errors);
    }

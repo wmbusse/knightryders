@@ -109,7 +109,7 @@ class Db_object{
     # Begin Delete Method 
     public function delete(){
       global $database;
-      $sql = "DELETE FROM ". static::$db_table.  "WHERE id = ".$database->escape_string($this->id);
+      $sql = "DELETE FROM ". static::$db_table.  " WHERE id = ".$database->escape_string($this->id);
       $database->query($sql);
       return(mysqli_affected_rows($database->connection)==1) ? true:false;
     }# End Delete Method 
