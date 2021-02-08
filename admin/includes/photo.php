@@ -42,6 +42,9 @@ public function set_file($file){
         $this->size     = $file['size'];
     }
 }
+    public function picture_path(){
+        return $this->upload_directory.DS.$this->filename ;
+    }
 
     public function save() {
         

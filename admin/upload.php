@@ -1,4 +1,19 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/header.php"); 
+if(!$session->is_signed_in()) {redirect("login.php");}
+$message = "";
+if(isset($_POST['submit'])){
+   $photo = new Photo();
+   $photo->title = $_POST['title'];
+   $photo->set_file($_FILES['file_upload']);
+
+   if($photo->save()) {
+       $message = "Photo uploaded successfully!";
+   }else{
+       $message = join("<br />", $photo->errors);
+   }
+
+}
+?>
 
       
             <!-- Top Menu Items -->
@@ -20,14 +35,23 @@
              Upload
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                       <div class="col-md-6">
+                       <?php echo $message; ?>
+                       <form action="upload.php" method = "POST" enctype = "multipart/form-data">
+                       
+                       <div class="form-group">
+                       <label for="title">Enter the title of the picture</label>
+                       <input type="text" name="title" class = "form-control">
+                       </div>
+                       <div class="form-group">
+                       <input type="file" name="file_upload" >
+                       </div>
+                       <input type="submit" name="submit">
+                       
+                       </form>
+                       </div>
+
+
                     </div>
                 </div>
                 <!-- /.row -->

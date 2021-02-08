@@ -8,6 +8,9 @@
                     </li>
                     <li>
                         <a href="upload.php"><i class="fa fa-fw fa-table"></i> Upload</a>
+                        <li>
+                        <a href="photos.php"><i class="fa fa-fw fa-table"></i> Photos</a>
+                    </li>
                     </li>
                     <li>
                         <a href="comment.php"><i class="fa fa-fw fa-edit"></i> Comments</a>
