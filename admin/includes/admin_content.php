@@ -7,15 +7,13 @@
           </h1>
       
            <?php
-           
+      
+       echo SITE_ROOT ."<BR>";
+       echo INCLUDES_PATH ;
 /*
            $user = new User();
-           $user->username = "L.G";
-           $user->firstname = "Little ";
-           $user->lastname = "Girl";
-           $user->password = "TheOnlyFemaleCat";
-           $user->experience = "Professional";
-           $user->profile = "I am the only female Cat in this house... and I demand all the respect!";
+           $user->username = "new";
+          
 
            $user->create();
       /*
@@ -53,3 +51,4 @@
           </ul>
       </div>
   </div>
+  

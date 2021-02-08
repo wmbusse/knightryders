@@ -5,7 +5,7 @@ class Db_object{
     public static function find_all()
     {
   
-      return static::find_this_query("SELECT * FROM " . static::$db_table." ");
+      return static::find_by_query("SELECT * FROM " . static::$db_table." ");
     }
   
     # end find users method 
@@ -15,20 +15,13 @@ class Db_object{
     public static function find_by_id($user_id)
     {
       global $database;
-      $the_result_array = static::find_this_query("SELECT * FROM " . static::$db_table. " WHERE id ='$user_id' LIMIT 1");
+      $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table. " WHERE id ='$user_id' LIMIT 1");
       return !empty($the_result_array) ? array_shift($the_result_array) : false;
-      /* if(!empty($the_result_array)){
-  
-              $first_item = array_shift($the_result_array);
-  
-              return $first_item;
-          }else{
-              return false;
-          }*/
+     
     } # end method find user by id
     # begin find this query method 
 
-  public static function find_this_query($sql)
+  public static function find_by_query($sql)
   {
     global $database;
     $result_set = $database->query($sql);
@@ -45,11 +38,7 @@ class Db_object{
   {
       $calling_class = get_called_class();
     $the_object = new $calling_class;
-    // $the_object->id         = $founduser['id'];
-    // $the_object->username   = $founduser['username'];
-    // $the_object->lastname   = $founduser['lastname'];
-    // $the_object->firstname  = $founduser['firstname'];
-    // $the_object->experience = $founduser['experience'];
+    
 
     foreach ($the_record as $the_attribute => $value) {
 
@@ -68,6 +57,82 @@ class Db_object{
 
     return  array_key_exists($the_attribute, $object_properties);
   } #end has attribute method
+  
+  # save method begins
+
+  public function save() {
+    return isset($this->id) ? $this->update() : $this->create();
+
+  }
+
+  # Create Method
+  public function create()
+  {
+
+    global $database;
+    $properties = $this->cleaned_properties();
+    $sql = "INSERT INTO " . static::$db_table . "(".implode(", ", array_keys($properties)) . ")";
+    $sql .="VALUES ('".implode("','", array_values($properties)) ."')";
+    
+
+    if ($database->query($sql)) {
+
+      $this->id = $database->the_insert_id();
+
+      return true;
+    } else {
+
+      return false;
+    }
+    }# end Create Method 
+
+      #update function
+  public function update(){
+      global $database;
+      $properties = $this->cleaned_properties();
+      $property_pairs = array();
+      foreach($properties as $key=>$value){
+        $property_pairs[] = "{$key} ='{$value}'";
+      }
+      $sql = "UPDATE " .static::$db_table ." SET ";
+      $sql .= implode(",",$property_pairs);
+      $sql .=" WHERE id = ". $database->escape_string($this->id);
+
+
+
+      $database->query($sql);
+
+      return(mysqli_affected_rows($database->connection)== 1) ? true:false;
+
+    }# End update Method 
+
+    # Begin Delete Method 
+    public function delete(){
+      global $database;
+      $sql = "DELETE FROM ". static::$db_table.  "WHERE id = ".$database->escape_string($this->id);
+      $database->query($sql);
+      return(mysqli_affected_rows($database->connection)==1) ? true:false;
+    }# End Delete Method 
+    protected function properties() {
+        //return $object_properties =  get_object_vars($this);
+        $properties = array();
+        foreach (static::$db_table_fields as $db_field){
+          if(property_exists($this,$db_field)){
+            $properties[$db_field] = $this->$db_field;
+          }
+        }
+        return $properties;
+      }
+    
+      # CLEAN PROPERTIES 
+       protected function cleaned_properties() {
+         global $database;
+         $cleaned_properties = array();
+         foreach($this->properties() as $key => $value) {
+           $cleaned_properties[$key] = $database->escape_string($value);
+         }
+         return $cleaned_properties;
+       }
 }
 
 
