@@ -43,9 +43,9 @@ if (!$session->is_signed_in()) {
                                     <td>
                                         <img src="<?php echo $photo->picture_path(); ?>" class = "admin-thumbnail" alt="">
                                         <div class="pictures_link">
-                                            <a href="delete_photos.php?id=<?php echo $photo->id; ?>">Delete</a>
-                                            <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
-                                            <a href="">View</a>
+                                            <a href="delete_photos.php?id=<?php echo $photo->id; ?>" class = "btn btn-danger">Delete</a>
+                                            <a href="edit_photo.php?id=<?php echo $photo->id; ?>" class = "btn btn-warning">Edit</a>
+                                            <a href="" class = "btn btn-primary">View</a>
                                         </div>
                                     </td>
 

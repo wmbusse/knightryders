@@ -1,7 +1,11 @@
 <?php
 
 $user= User::find_by_id($_SESSION['user_id']);
+if(!empty($user)){
 $_SESSION['username'] = $user->username."&nbsp;".$user->lastname;
+}else{
+    echo "no user found";
+}
 ?>
 
 <!-- Navigation -->
