@@ -28,10 +28,9 @@ if (!$session->is_signed_in()) {
                         <thead>
                             <tr>
                                 <th>Photo</th>
-                                <th>Id</th>
                                 <th>Title</th>
                                 <th>Caption</th>
-                                <th>Size</th>
+                                <th>Comments</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,15 +44,22 @@ if (!$session->is_signed_in()) {
                                         <div class="pictures_link">
                                             <a href="delete_photos.php?id=<?php echo $photo->id; ?>" class = "btn btn-danger">Delete</a>
                                             <a href="edit_photo.php?id=<?php echo $photo->id; ?>" class = "btn btn-warning">Edit</a>
-                                            <a href="" class = "btn btn-primary">View</a>
+                                            <a href="photo.php?id=<?php echo $photo->id;?>" class = "btn btn-primary">View</a>
                                         </div>
                                     </td>
 
 
-                                    <td><?php echo $photo->id; ?></td>
+
                                     <td><?php echo $photo->title; ?></td>
                                     <td><?php echo $photo->caption; ?></td>
-                                    <td><?php echo $photo->size; ?></td>
+                                  
+                                    <td>
+                                      <a href="comment_photo.php?id=<?php echo $photo->id;?>"class="btn btn-primary">
+                                        <?php
+                                        $comments = Comment::find_comment($photo->id);
+                                        echo count($comments);
+                                        ?> Comment(s)</a>
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </tbody>

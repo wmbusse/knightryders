@@ -47,6 +47,7 @@ if(empty($_GET['id'])){
                 <form action="" method="POST" enctype="multipart/form-data">
                 <div class="col-md-8">
                    <div class="form-group">
+                   <label for="title">Title</label>
                     <input type="text" name="title" class="form-control" value="<?php echo $photo->title;?>">
                    </div>
                    <div class="form-group">

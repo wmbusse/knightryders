@@ -38,6 +38,7 @@ if (!$session->is_signed_in()) {
                         </thead>
                         <tbody>
                             <?php
+                       
                             $users = User::find_all();
                             foreach ($users as $user) {
                             ?>
@@ -48,7 +49,7 @@ if (!$session->is_signed_in()) {
                                     <div class="actions_link">
                                             <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                                             <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
-                                            <a href="">View</a>
+                                            
                                         </div>
                                     </td>
                                     <td><?php echo $user->firstname; ?></td>

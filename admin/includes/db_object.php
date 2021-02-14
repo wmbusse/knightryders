@@ -1,25 +1,26 @@
-<?php 
+<?php
 
 class Db_object{
+  
     protected static $db_table = "users";
     public static function find_all()
     {
-  
+
       return static::find_by_query("SELECT * FROM " . static::$db_table." ");
     }
-  
-    # end find users method 
-  
-    #start find users by id method 
-  
+
+    # end find users method
+
+    #start find users by id method
+
     public static function find_by_id($user_id)
     {
       global $database;
       $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table. " WHERE id ='$user_id' LIMIT 1");
       return !empty($the_result_array) ? array_shift($the_result_array) : false;
-     
+
     } # end method find user by id
-    # begin find this query method 
+    # begin find this query method
 
   public static function find_by_query($sql)
   {
@@ -31,14 +32,14 @@ class Db_object{
     }
     return $the_object_array;
   } #end method find this query
-  
+
   # begin instantiation method
 
   public static function instantiation($the_record)
   {
       $calling_class = get_called_class();
     $the_object = new $calling_class;
-    
+
 
     foreach ($the_record as $the_attribute => $value) {
 
@@ -49,15 +50,15 @@ class Db_object{
     }
 
     return $the_object;
-  } #end instantiation method 
-  # has the attribute method 
+  } #end instantiation method
+  # has the attribute method
   private function has_the_attribute($the_attribute)
   {
     $object_properties =  get_object_vars($this);
 
     return  array_key_exists($the_attribute, $object_properties);
   } #end has attribute method
-  
+
   # save method begins
 
   public function save() {
@@ -73,7 +74,7 @@ class Db_object{
     $properties = $this->cleaned_properties();
     $sql = "INSERT INTO " . static::$db_table . "(".implode(", ", array_keys($properties)) . ")";
     $sql .="VALUES ('".implode("','", array_values($properties)) ."')";
-    
+
 
     if ($database->query($sql)) {
 
@@ -84,7 +85,7 @@ class Db_object{
 
       return false;
     }
-    }# end Create Method 
+    }# end Create Method
 
       #update function
   public function update(){
@@ -104,15 +105,15 @@ class Db_object{
 
       return(mysqli_affected_rows($database->connection)== 1) ? true:false;
 
-    }# End update Method 
+    }# End update Method
 
-    # Begin Delete Method 
+    # Begin Delete Method
     public function delete(){
       global $database;
       $sql = "DELETE FROM ". static::$db_table.  " WHERE id = ".$database->escape_string($this->id);
       $database->query($sql);
       return(mysqli_affected_rows($database->connection)==1) ? true:false;
-    }# End Delete Method 
+    }# End Delete Method
     protected function properties() {
         //return $object_properties =  get_object_vars($this);
         $properties = array();
@@ -123,8 +124,8 @@ class Db_object{
         }
         return $properties;
       }
-    
-      # CLEAN PROPERTIES 
+
+      # CLEAN PROPERTIES
        protected function cleaned_properties() {
          global $database;
          $cleaned_properties = array();
@@ -133,6 +134,7 @@ class Db_object{
          }
          return $cleaned_properties;
        }
+      
 }
 
 

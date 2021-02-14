@@ -5,7 +5,7 @@
 class User extends Db_object
 {
   protected static $db_table = "users";
-  protected static $db_table_fields = array('username','password','firstname','lastname','experience','profile','user_image');
+  protected static $db_table_fields = array('id','username','password','firstname','lastname','experience','profile','user_image');
 
   public $id;
   public $username;
@@ -30,6 +30,14 @@ class User extends Db_object
           UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
   );
 
+  public static function find_by_id($user_id)
+  {
+    global $database;
+    $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table. " WHERE id ='$user_id' LIMIT 1");
+    return !empty($the_result_array) ? array_shift($the_result_array) : false;
+
+  } # end method find user by id
+
   public function image_path_and_placeholder(){
     return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory.DS.$this->user_image;
   }
@@ -51,35 +59,16 @@ class User extends Db_object
   }
          // This is passing the $_FILES['uploaded_file'] as an argument
 
-public function set_file($file){
 
-  if(empty($file) || !is_array($file)){
-      $this->errors[] = "There is no file here";
-      return false;  
-  }elseif($file['error'] !=0){
-      $this->errors[] = $this->uploads_errors_array[$file['error']];
-      return false;
-
-  }else{
-      $this->user_image = basename($file['name']);
-      $this->tmp_path = $file['tmp_name'];
-      $this->type     = $file['type'];
-      $this->size     = $file['size'];
-  }
-}
   public function picture_path(){
       return $this->upload_directory.DS.$this->user_image ;
   }
 
-  public function save_user_and_image() {
-      
-      if($this->id){
-          $this->update();
-      }else{
-          if(!empty($this->errors)){
-              return false;
-          }
-         
+  public function upload_photo() {
+
+     
+        
+
       if(empty($this->user_image)||empty($this->tmp_path)){
           $this->errors[] = "The file was not available";
           return false;
@@ -93,18 +82,19 @@ public function set_file($file){
       }
 
       if(move_uploaded_file($this->tmp_path, $target_path)) {
-          if($this->create()) {
+          
               unset($this->tmp_path);
               return true;
-          }
+          
       }else{
           $this->errors[] = "The file directory probably does not have permissions";
           return false;
       }
-      
-    }
+
   
+
   }
+
 
   public function delete_user(){
       if($this->delete()){
@@ -116,4 +106,23 @@ public function set_file($file){
           return false;
       }
   }
+   #################################
+       ###    SET FILE METHOD       ####
+       #################################
+       public function set_file($file){
+
+        if(empty($file) || !is_array($file)){
+            $this->errors[] = "There is no file here";
+            return false;
+        }elseif($file['error'] !=0){
+            $this->errors[] = $this->uploads_errors_array[$file['error']];
+            return false;
+      
+        }else{
+            $this->user_image = basename($file['name']);
+            $this->tmp_path = $file['tmp_name'];
+            $this->type     = $file['type'];
+            $this->size     = $file['size'];
+        }
+      }
 }// End user class

@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">Knight Ryders</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -17,7 +17,13 @@
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="team.php">Our Team</a>
+                    </li>
+                    <li>
+                        <a href="events.php">Events</a>
+                    </li>
+                    <li>
+                        <a href="photo_gallery.php">Photo Gallery</a>
                     </li>
                     <li>
                         <a href="admin">Admin</a>

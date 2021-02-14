@@ -8,7 +8,7 @@ if (!$session->is_signed_in()) {
     if(isset($_POST['create'])){
 
 
-    
+
         if($user){
             $user->username        =$_POST['username'];
             $user->firstname       =$_POST['firstname'];
@@ -17,10 +17,11 @@ if (!$session->is_signed_in()) {
             $user->experience      =$_POST['experience'];
             $user->profile         =$_POST['profile'];
             $user->set_file($_FILES['user_image']);
-            $user->save_user_and_image();
+            $user->save();
+            $user->upload_photo();
             redirect("../admin/users.php");
-        
-     
+
+
 }
 }
 
@@ -56,7 +57,7 @@ if (!$session->is_signed_in()) {
                           <label for="username">User Name</label>
                           <input type="text" name="username" class="form-control" >
                          </div>
-                         
+
                          <div class="form-group">
                          <label for = "firstname">First Name</label>
                           <input type="text" name="firstname" class="form-control">
@@ -71,7 +72,12 @@ if (!$session->is_signed_in()) {
                          </div>
                          <div class = "form-group">
                           <label for = "experience">Experience</label>
-                          <input type="text" name="experience" class="form-control" >
+                          <select name="experience"class="form-control">
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced </option>
+                            <option>Professional</option>
+                          </select>
                          </div>
                          <div class="form-group">
                          <label for = "profile">Profile</label>
@@ -80,13 +86,13 @@ if (!$session->is_signed_in()) {
                          <div class="form-group">
                            <input type="submit" name = "create" class = "btn btn-primary pull-right">
                          </div>
-                         </form>  
-                      </div> 
-                                
+                         </form>
+                      </div>
+
             </div>
-                      
-                  
+
+
         </div>
-    </div>  
+    </div>
 
 <?php include("includes/footer.php"); ?>
