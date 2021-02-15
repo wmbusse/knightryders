@@ -5,6 +5,7 @@ class Session{
     private $signed_in = false;
     public $user_id;
     public $the_message;
+    public $count;
 
 
 
@@ -13,7 +14,7 @@ class Session{
         session_start();
         $this->check_the_login(); 
         $this->check_message();
-
+        $this->visitor_count();
     }
     public function message($msg = ""){
         if(!empty($msg)){
@@ -69,7 +70,13 @@ class Session{
 
     }
 
-   
+   public function visitor_count(){
+       if(isset($_SESSION['count'])){
+           return $this->count = $_SESSION['count'] ++;
+       }else{
+           return $_SESSION['count'] =1;
+       }
+   }
 
     }
 

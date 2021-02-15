@@ -1,13 +1,13 @@
+<?php include("includes/header.php"); ?>
 <?php
 
-require("includes/init.php");
 
 $events = Event::find_all();
 
 
 
 ?>
-<?php include("includes/header.php"); ?>
+
 <div class="col-md-9">
     <table class="table">
         <thead>

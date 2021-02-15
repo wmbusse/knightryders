@@ -1,12 +1,12 @@
 <?php
 
- require("includes/init.php");
+include("includes/header.php");
 
 $users=User::find_all();
 
 
 ?>
-<?php include("includes/header.php");?>
+<?php ?>
 <div class="col-md-9">
 <table class="table">
 <thead>

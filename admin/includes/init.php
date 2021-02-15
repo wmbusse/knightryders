@@ -11,3 +11,4 @@ defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH',SITE_ROOT.DS.'admin'.DS
     require_once("user.php");
     require_once("event.php");
     require_once("photo.php");
+ 

@@ -1,12 +1,11 @@
-<?php
-require_once("includes/init.php");
+<?php include("includes/header.php");
 $users = User::find_all();
 $events = Event::find_all();
 $number_of_users = count($users);
 $number_of_events = count($events);
 ?>
 
-<?php include("includes/header.php");?>
+
 
 
         <div class="row">
