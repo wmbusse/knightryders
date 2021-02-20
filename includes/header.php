@@ -1,4 +1,4 @@
-<?php require_once("init.php");?>
+<?php require_once("init.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     <link href="css/blog-home.css" rel="stylesheet">
+    <link href="css/album.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,8 +37,8 @@
 
 
     <!-- Navigation -->
-<?php include("navigation.php"); ?>
+    <?php include("navigation.php"); ?>
 
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container-fluid>

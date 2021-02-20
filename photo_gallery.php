@@ -2,7 +2,7 @@
 <?php include("includes/header.php"); 
 
 $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-$items_per_page = 4;
+$items_per_page = 3;
 $items_total_count = Photo::count_all();
 
 $paginate = new Paginate($page,$items_per_page,$items_total_count);
@@ -38,6 +38,19 @@ $photos = Photo::find_by_query($sql);
         if($paginate->pageTotal()>1){
             if($paginate->hasNext()){
                 echo "<li class='next'><a href='photo_gallery.php?page={$paginate->next()}'>Next</a></li>";
+
+                for($i=1; $i <= $paginate->pageTotal(); $i++) {
+
+                    if($i == $paginate->current_page) {
+
+                        echo "<li class='active'><a href='photo_gallery.php?page={$i}'>{$i}</a></li>";
+                    }else{
+                        echo "<li><a href='photo_gallery.php?page={$i}'>{$i}</a></li>";
+                    }
+                }
+
+
+
             }
             if($paginate->hasPrevious()){
                 echo "<li class='previous'><a href='photo_gallery.php?page={$paginate->previous()}'>Previous</a></li>";

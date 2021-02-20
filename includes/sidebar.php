@@ -1,48 +1,35 @@
         
 
             <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
+                <div class="well" style="font-family:Rock Salt; text-align:center;">
+                    <h4>Announcing</h4>
+                    <!-- <div class="input-group"> -->
+                        <!-- <input type="text" class="form-control">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
-                        </button>
+                        </button> -->
                         </span>
                     </div>
                     <!-- /.input-group -->
-                </div>
+            
 
                 <!-- Blog Categories Well -->
         <div class="well">
-                    <h4>Blog Categories</h4>
+                    
+             
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
+                                <li><a href="#"> </a>
                                 </li>
-                                <li><a href="#">Category Name</a>
+                                <li><a href="#">New Hustle Team ..... Sidelined Spinners of South Elgin</a>
                                 </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
+                                
                             </ul>
                         </div>
-                        <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
+                       
+                        
                         <!-- /.col-lg-6 -->
                     </div>
                     <!-- /.row -->
@@ -50,8 +37,9 @@
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>Welcome Aboard</h4>
+                    <p>Team Knight Ryders welcomes the Sidelined Spinners of South Elgin, simply some great people whom have joined the  fight against lung disease!</p>
+                    <p>We welcome you  and congratulate you for making an amazing decision</p>
                 </div>
 
             </div>

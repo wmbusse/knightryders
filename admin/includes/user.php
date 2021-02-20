@@ -47,6 +47,33 @@ class User extends Db_object
     $the_result_array = self::find_by_query("SELECT * FROM ".self::$db_table ." WHERE username ='$username' LIMIT 1");
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
   }
+  public function ajax_save_user_image($user_image, $user_id) {
+
+
+		global $database;
+
+		$user_image = $database->escape_string($user_image);
+		$user_id = $database->escape_string($user_id);
+
+		$this->user_image = $user_image;
+		$this->id         = $user_id;
+
+		$sql  = "UPDATE " . self::$db_table . " SET user_image = '{$this->user_image}' ";
+		$sql .= " WHERE id = {$this->id} ";
+		$update_image = $database->query($sql);
+
+		
+		echo $this->picture_path();
+
+
+
+	
+
+
+	}
+
+    
+
   public static function verify_user($username, $password)
   {
     global $database;

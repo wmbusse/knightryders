@@ -34,12 +34,7 @@ $comments = Comment::find_comment($user->id);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-
-
-<body>
 
     <!-- Navigation -->
    <?php include('includes/navigation.php');?>
@@ -48,9 +43,12 @@ $comments = Comment::find_comment($user->id);
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    
+    
 
         <div class="row">
+        <div class = "content">
+        <section>
 
             <!-- Blog Post Content Column -->
             <div class="col-lg-8">
@@ -124,7 +122,7 @@ $comments = Comment::find_comment($user->id);
             </div>
 
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+            <div class="col-md-3 pull-right">
 
                 <!-- Blog Search Well -->
                 <div class="well">
@@ -144,7 +142,7 @@ $comments = Comment::find_comment($user->id);
                 <div class="well">
                     <h4>Blog Categories</h4>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-3 text-center">
                             <ul class="list-unstyled">
                                 <li><a href="#">Category Name</a>
                                 </li>
@@ -156,7 +154,7 @@ $comments = Comment::find_comment($user->id);
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-3 text-center">
                             <ul class="list-unstyled">
                                 <li><a href="#">Category Name</a>
                                 </li>
@@ -179,7 +177,8 @@ $comments = Comment::find_comment($user->id);
                 </div>
 
             </div>
-
+            </section>
+        </div>
         </div>
         <!-- /.row -->
 
@@ -195,7 +194,7 @@ $comments = Comment::find_comment($user->id);
             <!-- /.row -->
         </footer>
 
-    </div>
+  
     <!-- /.container -->
 
     <!-- jQuery -->

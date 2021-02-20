@@ -1,4 +1,5 @@
-<?php include("includes/header.php");
+<?php include("includes/header.php");?>
+<?php include("includes/photo_library_modal.php");
 if (!$session->is_signed_in()) {
     redirect("login.php");
 }
@@ -55,8 +56,8 @@ if(empty($_GET['id'])){
                     Add User
                     <small>Subheading</small>
                 </h1>
-                <div class="col-md-3">
-                <img src="<?php echo $edited_user->image_path_and_placeholder();?>" alt="" class=" admin-thumbnail img-responsive">
+                <div class="col-md-6 user_image_box">
+                <a href='#' data-toggle='modal' data-target='#photo-library'><img src="<?php echo $edited_user->image_path_and_placeholder();?>" alt="" class=" admin-thumbnail img-responsive" style="width:500px; height:400px"></a>
                 <div class="form-group">
                             <label for="profile" style="margin-top:20px">Profile</label>
                             <span class="form-control" name="profile" cols="30" rows="10" ><?php echo $edited_user->profile;?></span>
@@ -98,7 +99,7 @@ if(empty($_GET['id'])){
                             <textarea class="form-control" name="profile" cols="30" rows="10"><?php echo $edited_user->profile;?></textarea>
                         </div>
                         <div class="form-group">
-                        <a href ="../admin/delete_user.php?id=<?php echo $edited_user->id;?>"class = "btn btn-danger">Delete</a>
+                        <a id = "user_id" href ="../admin/delete_user.php?id=<?php echo $edited_user->id;?>"class = "btn btn-danger">Delete</a>
                             <input type="submit" name="update" class="btn btn-primary pull-right" value="Update">
                         </div>
                 </form>

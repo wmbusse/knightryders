@@ -7,7 +7,8 @@ $users=User::find_all();
 
 ?>
 <?php ?>
-<div class="col-md-9">
+<div class="col-md-9 content">
+  <section>
 <table class="table">
 <thead>
 <tr>
@@ -39,11 +40,11 @@ foreach($users as $user){?>
 </table>
 
 </div>
-<div class="col-md-3">
+<div class="col-md-3 pull-right">
 <?php include("includes/sidebar.php");?>
 </div>
 
-
+</section>
 </body>
 <?php include("includes/footer.php"); ?>
 </html>

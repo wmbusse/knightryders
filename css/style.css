@@ -1,0 +1,33 @@
+.pager .active a {
+  background-color: black;
+  color: yellow;
+}
+.pager .active a:hover {
+  background-color: yellow;
+  color: black;
+}
+.pager li a {
+  background: yellow;
+  color: black;
+}
+.pager li a:hover {
+  background: blue;
+  color: orange;
+}
+
+.admin-thumbnail {
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 15px black;
+}
+
+section p {
+  line-height:2;
+  font-family:cursive;
+  font-size:18px;
+}
+.navbar-header a{
+  font-family:Rock Salt;
+  color:darkgoldenrod;
+}

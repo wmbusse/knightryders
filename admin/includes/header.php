@@ -28,6 +28,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href = "css/style.css" rel="Stylesheet">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/scripts.js"></script>
     <script>
 // Get the modal
 var modal = document.getElementById('id01');

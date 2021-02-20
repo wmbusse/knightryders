@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Knight Ryders</a>
+                <a class="navbar-brand" href="index.php" style="font-family:Rock Salt;color:darkgoldenrod">Knight Ryders</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -17,13 +17,13 @@
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="team.php">Our Team</a>
+                        <a href="team-two.php">Our Team</a>
                     </li>
                     <li>
                         <a href="events.php">Events</a>
                     </li>
                     <li>
-                        <a href="photo_gallery.php">Photo Gallery</a>
+                        <a href="gallery.php">Photo Gallery</a>
                     </li>
                     <li>
                         <a href="admin">Admin</a>
