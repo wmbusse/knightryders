@@ -12,7 +12,9 @@ class Event extends Db_object
      'event_date',
      'event_type',
      'event_description',
-     'event_image'
+     'event_image',
+     'status',
+     'Website'
     );
 
     public $id;
@@ -22,6 +24,8 @@ class Event extends Db_object
     public $event_type;
     public $event_description;
     public $event_image;
+    public $status;
+    public $Website;
     public $upload_directory = "images";
     public $image_placeholder ="http://placehold.it/400x400&text=image";
     public $tmp_path;
@@ -37,7 +41,11 @@ class Event extends Db_object
           UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
   );
     
+  public static function find_all()
+  {
 
+    return static::find_by_query("SELECT * FROM " . static::$db_table." ORDER BY event_date ASC");
+  }
   public static function find_by_id($event_id)
   {
     global $database;

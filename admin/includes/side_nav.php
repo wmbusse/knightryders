@@ -8,12 +8,17 @@
                     </li>
                     <li>
                         <a href="upload.php"><i class="fa fa-fw fa-table"></i> Upload</a>
-                        <li>
-                        <a href="photos.php"><i class="fa fa-fw fa-table"></i> Photos</a>
+                      
                     </li>
+                    <li>
+                        <a href="photos.php"><i class="fa fa-fw fa-table"></i> Photos</a>
                     </li>
                     <li>
                         <a href="comment.php"><i class="fa fa-fw fa-edit"></i> Comments</a>
+                        </li>
+                        <li>
+                        <a href="add_event.php"><i class="fa fa-fw fa-table"></i>Events</a>
+                        </li>
                    
                 </ul>
             </div>

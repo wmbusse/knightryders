@@ -39,21 +39,7 @@ $events = Event::find_all();
                                 </div>
                                 <!-- /.content -->
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a class="panel-toggle collapsed" data-toggle="collapse" data-parent=".panel-group" href="#content3"><span>Contact Details</span></a></h4>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div id="content3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <h4>DM Images</h4>
-                                        <p>123 Anywhere Street,<br> London,<br> LO4 6ON</p>
-                                        <img class="img-responsive" src="images/seagulls.jpg">
-                                    </div>
-                                    <!-- /.panel-body -->
-                                </div>
-                                <!-- /.content -->
-                            </div>
+                          
                         </div>
                         <!-- /.accordion -->
                     </div>

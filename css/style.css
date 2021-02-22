@@ -31,3 +31,10 @@ section p {
   font-family:Rock Salt;
   color:darkgoldenrod;
 }
+.events{
+  font-family:'Rock Salt'; 
+  text-align:center;
+  background:skyblue;
+  padding-bottom:50px;
+  color:darkgoldenrod
+}

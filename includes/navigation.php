@@ -21,7 +21,9 @@
                     </li>
                     <li>
                         <a href="events.php">Events</a>
+                      
                     </li>
+                    <li><a href="scheduled_events.php"> Scheduled</a></li>
                     <li>
                         <a href="gallery.php">Photo Gallery</a>
                     </li>

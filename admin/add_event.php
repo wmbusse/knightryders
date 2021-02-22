@@ -13,6 +13,8 @@ if (isset($_POST['create'])) {
         $event->event_date = $_POST['eventdate'];
         $event->event_type = $_POST['eventtype'];
         $event->event_description = $_POST['eventdescription'];
+        $event->status = $_POST['status'];
+        $event->Website = $_POST['Website'];
         $event->set_file($_FILES['event_image']);
         $event->save();
         $event->upload_photo();
@@ -41,7 +43,7 @@ if (isset($_POST['create'])) {
             <div class="col-lg-12">
                 <h1 class="page-header">
                     Add Event
-                    <small><?php echo $event->image_path_and_placeholder();?></small>
+                    
                 </h1>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="col-md-6 col-md-offset-3">
@@ -62,12 +64,25 @@ if (isset($_POST['create'])) {
                             <input type="date" name="eventdate" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="Website">Website</label>
+                            <input type="url" name="Website" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="eventtype">Type of Event</label>
                             <select name="eventtype" class="form-control">
                                 <option>Running</option>
                                 <option>Cycling</option>
                                 <option>Stair Climb</option>
                                 <option>Training</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Event Status</label>
+                            <select name="status" class="form-control">
+                                <option>Current </option>
+                                <option>Registration Open</option>
+                                <option>Event Completed</option>
+                                <option>Scheduled</option>
                             </select>
                         </div>
                         <div class="form-group">
