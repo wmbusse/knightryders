@@ -16,7 +16,7 @@ if (!$session->is_signed_in()) {
     $event = Event::find_by_id($_GET['id']);
 
     if ($event) {
-        $event->delete_user();
+        $event->delete_event();
         redirect("events.php");
     } else {
         redirect("events.php");

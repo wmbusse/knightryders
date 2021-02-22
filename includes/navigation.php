@@ -19,20 +19,28 @@
                     <li>
                         <a href="team-two.php">Our Team</a>
                     </li>
-                    <li>
-                        <a href="events.php">Events</a>
-                      
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events </a> 
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink11" style="background:black;text-align:center;"> 
+                          <a class="dropdown-item" href="events.php" style="color:white;">Action</a><br />
+
+                            <a class="dropdown-item" href="Scheduled_events.php" style="color:white;">Another action</a> 
+
+                            <a class="dropdown-item" href="#" style="color:white;">Something else here</a> 
+                        </div>                         
                     </li>
-                    <li><a href="scheduled_events.php"> Scheduled</a></li>
+                  
                     <li>
                         <a href="gallery.php">Photo Gallery</a>
                     </li>
                     <li>
                         <a href="admin">Admin</a>
                     </li>
+                
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
+    </nav> 
+    

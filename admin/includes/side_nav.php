@@ -17,7 +17,7 @@
                         <a href="comment.php"><i class="fa fa-fw fa-edit"></i> Comments</a>
                         </li>
                         <li>
-                        <a href="add_event.php"><i class="fa fa-fw fa-table"></i>Events</a>
+                        <a href="events.php"><i class="fa fa-fw fa-table"></i>Events</a>
                         </li>
                    
                 </ul>

@@ -52,9 +52,8 @@ $events = Event::find_all();
                             <td><?php echo $status; ?></td>
                             <td><?php echo $event->event_type; ?></td>
                             <td><a href="<?php echo $event->Website; ?>" style="color:whitesmoke"><?php echo $event->event_name; ?></a></td>
-                            <td><a href="events.php" class="btn btn-danger">Delete Event</a></td>
-                            <td><a href="events.php" class="btn btn-primary">Update Event</a></td>
-
+                            <td>  <a href="delete_event.php?id=<?php echo $event->id; ?>" class="btn btn-danger">Delete Event</a></td>
+                            <td><a href="edit_event.php?id=<?php echo $event->id;?>" class="btn btn-primary">Update Event</a></td>
 
                         </tr>
 

@@ -32,7 +32,7 @@ $events = Event::find_all();
             foreach ($events as $event) {
                 $status = $event->status;
                 
-           if($status ==='Current'||  $status==="Registration Open"){?>
+           if($status ==='Current'||  $status==="Registration Open" || $status==="Event Completed"){?>
             <tr>
                 <td> <img src="<?php echo 'admin/' . $event->image_path_and_placeholder(); ?>" alt="" class="img-circle" style="height:100px;width:100px"></td>
                     <td><?php echo $event->event_name; ?></td>
@@ -55,8 +55,4 @@ $events = Event::find_all();
 <div class="col-md-2"></div>
 
 
-
-</body>
 <?php include("includes/footer.php"); ?>
-
-</html>

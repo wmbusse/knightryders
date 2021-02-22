@@ -1,26 +1,38 @@
-<?php include("includes/header.php");
-
-
-
-$event = new Event();
-if (isset($_POST['create'])) {
-
-
-
-    if ($event) {
-        $event->event_name = $_POST['eventname'];
-        $event->event_location = $_POST['eventlocation'];
-        $event->event_date = $_POST['eventdate'];
-        $event->event_type = $_POST['eventtype'];
-        $event->event_description = $_POST['eventdescription'];
-        $event->status = $_POST['status'];
-        $event->Website = $_POST['Website'];
-        $event->set_file($_FILES['event_image']);
-        $event->save();
-        $event->upload_photo();
-        redirect("../admin/events.php");
-    }
+<?php include("includes/header.php");?>
+<?php include("includes/photo_library_modal.php");
+if (!$session->is_signed_in()) {
+    redirect("login.php");
 }
+if(empty($_GET['id'])){
+    redirect("events.php");
+}
+    $event = Event::find_by_id($_GET['id']);
+
+    if (isset($_POST['update'])) {
+    
+        if ($event) {
+            $event->event_name          = $_POST['eventname'];
+            $event->event_location      = $_POST['eventlocation'];
+            $event->event_date          = $_POST['eventdate'];
+            $event->Website             = $_POST['Website'];
+            $event->event_type          = $_POST['eventtype'];
+            $event->status              = $_POST['status'];
+            $event->event_description   = $_POST['eventdescription'];
+            if(empty($_FILES['event_image'])){
+                $event->save();
+            }else{
+                $event->set_file($_FILES['event_image']);
+                $event->upload_photo();
+                $event->save();
+                redirect("edit_event.php?id={$event->id}");
+            }
+        
+            
+        }
+    }
+
+
+
 
 
 ?>
@@ -42,8 +54,8 @@ if (isset($_POST['create'])) {
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Add Event
-                    
+                    Edit Event
+
                 </h1>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="col-md-6 col-md-offset-3">
@@ -93,7 +105,7 @@ if (isset($_POST['create'])) {
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" name="create" class="btn btn-primary pull-right">
+                            <input type="submit" name="update" class="btn btn-primary pull-right">
                         </div>
                 </form>
             </div>
